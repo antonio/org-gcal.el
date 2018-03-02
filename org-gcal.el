@@ -639,7 +639,7 @@ TO.  Instead an empty string is returned."
       (when id
         (concat "/" id)))
      :type (if id "PATCH" "POST")
-     :headers '(("Content-Type" . "application/json"))
+     :headers '(("Content-Type" . "application/json;charset=cp1252"))
      :data (json-encode `(("start" (,stime . ,start) (,stime-alt . nil))
                           ("end" (,etime . ,(if (equal "date" etime)
                                                  (org-gcal--iso-next-day end)
@@ -685,7 +685,7 @@ TO.  Instead an empty string is returned."
       (format org-gcal-events-url calendar-id)
       (concat "/" event-id))
      :type "DELETE"
-     :headers '(("Content-Type" . "application/json"))
+     :headers '(("Content-Type" . "application/json;charset=cp1252"))
      :params `(("access_token" . ,a-token)
                ("key" . ,org-gcal-client-secret)
                ("grant_type" . "authorization_code"))
